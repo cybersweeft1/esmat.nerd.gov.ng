@@ -55,9 +55,12 @@
     const urlParams = new URLSearchParams(window.location.search);
     const userId = urlParams.get('id');
 
+    // Enhanced Initial Case formatting (Initializes every word)
     function toInitialCase(str) {
         if (!str) return 'N/A';
-        return str.toString().toLowerCase().replace(/\b\w/g, char => char.toUpperCase());
+        return str.toString().toLowerCase().split(' ').map(word => 
+            word.charAt(0).toUpperCase() + word.slice(1)
+        ).join(' ');
     }
 
     // Function to open System Generated Text or Professional Error
@@ -109,7 +112,10 @@
             if (match) {
                 const rawDate = match.c[7]?.f || match.c[7]?.v || 'N/A';
                 
+                // FORCE CAPS for Title
                 const title = (match.c[1]?.v || 'N/A').toUpperCase();
+                
+                // FORCE Initial Case for all others
                 const studentName = toInitialCase(match.c[2]?.v);
                 const institution = toInitialCase(match.c[3]?.v);
                 const faculty = toInitialCase(match.c[4]?.v);
