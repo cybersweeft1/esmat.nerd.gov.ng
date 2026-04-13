@@ -42,10 +42,13 @@
         .docs a { color: #0000EE; text-decoration: underline; font-size: 15px; cursor: pointer; }
 
         .error { text-align: center; margin-top: 50px; font-family: Arial, sans-serif; }
+        .loading { text-align: center; color: #999; margin-top: 50px; }
            </style>
 </head>
 <body>
-
+<div id="app">
+    <div id="content" class="loading">Searching record...</div>
+</div>
 <script>
     // 1. CONFIGURATION
     const SHEET_ID = '1RBpClxl8hIRW3Y0PJdClYRebtGlYu_yJE7IWGVU_7to'; 
