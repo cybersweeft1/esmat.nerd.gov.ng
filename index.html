@@ -61,7 +61,7 @@
         ).join(' ');
     }
 
-    // New Formatting Function for YYYY-MM-DD hh-mm-ss
+    // Updated Formatting Function for YYYY-MM-DD hh:mm:ss
     function formatSubmissionDate(dateVal) {
         if (!dateVal || dateVal === 'N/A') return 'N/A';
         
@@ -75,7 +75,8 @@
         const mm = String(d.getMinutes()).padStart(2, '0');
         const ss = String(d.getSeconds()).padStart(2, '0');
 
-        return `${YYYY}-${MM}-${DD} ${hh}-${mm}-${ss}`;
+        // Changed hyphens to colons for the time section
+        return `${YYYY}-${MM}-${DD} ${hh}:${mm}:${ss}`;
     }
 
     function viewSystemGenerated() {
@@ -103,7 +104,6 @@
             if (rows && rows.length > 0) {
                 const match = rows[0];
                 
-                // Get the raw value and format it
                 const dateRaw = match.c[7]?.f || match.c[7]?.v || 'N/A';
                 const formattedDate = formatSubmissionDate(dateRaw);
 
