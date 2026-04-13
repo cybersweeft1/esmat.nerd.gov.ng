@@ -205,7 +205,7 @@
                 storedExtractedText = extractedText;
                 storedTitle = title;
 
-                const driveLink = fileId ? `https://drive.google.com/uc?id=${fileId}&export=view` : "#";
+                const driveLink = fileId ? `https://drive.google.com/file/d/${fileId}/preview` : "#";
 
                 content.innerHTML = `
                     <div class="header">NERD Compliance Verification</div>
